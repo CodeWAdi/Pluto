@@ -1,11 +1,29 @@
 #include "defs.h"
 #include <stdio.h>
+#include <stdlib.h>
+
 
   int Sq120To64[ BRD_SQ_NUM];
   int Sq64To120[64];
 
   U64 SetMask[64];
   U64 ClearMask[64];
+
+
+
+  void InitHashKeys(){
+    for(int index =0; index<13;++index){
+      for(int index2=0; index2<120;++index2){
+        PieceKeys[index][index2] = RAND_64;
+      }
+    }
+    SideKey =RAND_64;
+    
+    for(int index=0; index < 16; ++index){
+      CastleKeys[index]= RAND_64;
+    }
+  }
+
 
 
   void InitBitMask(){
@@ -73,5 +91,7 @@
 void AllInit(){
 
     InitSq120To64();
+    InitBitMask();
+    InitHashKeys();
 
 } 
