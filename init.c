@@ -11,7 +11,7 @@
 
 
 
-  void InitHashKeys(){
+  void InitHashKeys( ){
     for(int index =0; index<13;++index){
       for(int index2=0; index2<120;++index2){
         PieceKeys[index][index2] = RAND_64;
